@@ -16,3 +16,4 @@ https://www.youtube.com/watch?v=_HkGH2WN_Tg&list=PLB0Tybl0UNfYoJE7ZwsBQoDIG4YN9p
 005-removing-points
 006-dragging-points
 007-creating-segments
+008-fine-tuning
