@@ -8,6 +8,7 @@ class GraphEditor {
         this.selected = null;
         this.hovered = null;
         this.dragging = false;
+        this.mouse = null;
 
         this.#addEventListeners();
     }
@@ -15,40 +16,51 @@ class GraphEditor {
     #addEventListeners() {
         this.canvas.addEventListener("mousedown", (evt) => {
             if (evt.button == 2) {
-                if (this.hovered) {
-                    this.#removePoint(this.hovered);
+                if (!this.hovered) {
+                    this.selected = null;
+                    return;
                 }
+
+                this.#removePoint(this.hovered);
             }
 
             if (evt.button == 0) {
-                const mouse = new Point(evt.offsetX, evt.offsetY);
-
                 if (this.hovered) {
-                    this.selected = this.hovered;
+                    this.#selectPoint(this.hovered);
                     this.dragging = true;
                     return;
                 }
 
-                this.graph.addPoint(mouse);
-                this.selected = mouse;
-                this.hovered = mouse;
+                this.graph.addPoint(this.mouse);
+                this.#selectPoint(this.mouse);
+                this.hovered = this.mouse;
             }
         });
 
         this.canvas.addEventListener("mousemove", (evt) => {
-            const mouse = new Point(evt.offsetX, evt.offsetY);
+            this.mouse = new Point(evt.offsetX, evt.offsetY);
 
-            this.hovered = getNearestPoint(mouse, this.graph.points, 10);
+            this.hovered = getNearestPoint(this.mouse, this.graph.points, 10);
 
             if (this.dragging) {
-                this.selected.x = mouse.x;
-                this.selected.y = mouse.y;
+                this.selected.x = this.mouse.x;
+                this.selected.y = this.mouse.y;
             }
         });
 
         this.canvas.addEventListener("contextmenu", (evt) => evt.preventDefault());
 
         this.canvas.addEventListener("mouseup", () => this.dragging = false);
+    }
+
+    #selectPoint(point) {
+        if (this.selected) {
+            this.graph.tryAddSegment(
+                new Segment(this.selected, point)
+            );
+        }
+
+        this.selected = point;
     }
 
     #removePoint(point) {
@@ -68,6 +80,9 @@ class GraphEditor {
         }
 
         if (this.selected) {
+            const intent = this.hovered ? this.hovered : this.mouse;
+
+            new Segment(this.selected, intent).draw(ctx, { dash: [3, 3] });
             this.selected.draw(this.ctx, { outline: true });
         }
     }
