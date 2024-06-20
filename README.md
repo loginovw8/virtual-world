@@ -34,3 +34,4 @@ https://www.youtube.com/watch?v=3Aqe7Tv1jug&list=PLB0Tybl0UNfZtY5IQl1aNwcoOPJNtn
 013-polygon-envelopes
 014-roundness
 015-world-class
+016-finding-intersections
