@@ -10,11 +10,17 @@ class Polygon {
         }
     }
 
+    static multiBreak(polys) {
+        for (let i = 0; i < polys.length - 1; i++) {
+            for (let j = i + 1; j < polys.length; j++) {
+                this.intersections = Polygon.break(polys[i], polys[j]);
+            }
+        }
+    }
+
     static break(poly1, poly2) {
         const segs1 = poly1.segments;
         const segs2 = poly2.segments;
-
-        const intersections = [];
 
         for (let i = 0; i < segs1.length; i++) {
             for (let j = 0; j < segs2.length; j++) {
@@ -25,7 +31,6 @@ class Polygon {
 
                 if (int && int.offset != 1 && int.offset != 0) {
                     const point = new Point(int.x, int.y);
-                    intersections.push(point);
 
                     let aux = segs1[i].p2;
                     segs1[i].p2 = point;
@@ -37,8 +42,6 @@ class Polygon {
                 }
             }
         }
-
-        return intersections;
     }
 
     drawSegments(ctx) {
