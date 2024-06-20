@@ -37,3 +37,4 @@ https://www.youtube.com/watch?v=3Aqe7Tv1jug&list=PLB0Tybl0UNfZtY5IQl1aNwcoOPJNtn
 016-finding-intersections
 017-fine-tuning
 018-polygon-union
+019-styling
