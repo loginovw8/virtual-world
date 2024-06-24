@@ -38,3 +38,12 @@ https://www.youtube.com/watch?v=3Aqe7Tv1jug&list=PLB0Tybl0UNfZtY5IQl1aNwcoOPJNtn
 017-fine-tuning
 018-polygon-union
 019-styling
+
+## Part 05 - Procedural Generation
+
+https://www.youtube.com/watch?v=BBFNvmUKxJ0&list=PLB0Tybl0UNfZtY5IQl1aNwcoOPJNtnPEO&index=5
+
+020-buildings
+021-trees
+022-avoid-illegal-allocations
+023-fine-tuning
