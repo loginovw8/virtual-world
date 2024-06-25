@@ -47,3 +47,13 @@ https://www.youtube.com/watch?v=BBFNvmUKxJ0&list=PLB0Tybl0UNfZtY5IQl1aNwcoOPJNtn
 021-trees
 022-avoid-illegal-allocations
 023-fine-tuning
+
+## Part 06 - Pseudo 3D
+
+https://www.youtube.com/watch?v=aKzlooeJNM8&list=PLB0Tybl0UNfZtY5IQl1aNwcoOPJNtnPEO&index=6
+
+024-tree-object
+025-3d-approach
+026-styling-3d-trees
+027-random-number-generation
+028-building-object
