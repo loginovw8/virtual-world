@@ -64,7 +64,7 @@ https://www.youtube.com/watch?v=aKzlooeJNM8&list=PLB0Tybl0UNfZtY5IQl1aNwcoOPJNtn
 https://www.youtube.com/watch?v=kS4zDKC7LLs&list=PLB0Tybl0UNfZtY5IQl1aNwcoOPJNtnPEO&index=8
 
 030-preparing
-031-implementing-the-stop
-032-implementing-the-crossing
+031-implementing-the-stop-editor
+032-implementing-the-crossing-editor
 033-refactoring
-034-implementing-the-start
+034-implementing-the-start-editor

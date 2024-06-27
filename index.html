@@ -18,9 +18,10 @@
     </div>
 
     <script src="js/world.js"></script>
+    <script src="js/viewport.js"></script>
+    <script src="js/markings/stop.js"></script>
     <script src="js/editors/graphEditor.js"></script>
     <script src="js/editors/stopEditor.js"></script>
-    <script src="js/viewport.js"></script>
     <script src="js/items/tree.js"></script>
     <script src="js/items/building.js"></script>
     <script src="js/math/graph.js"></script>
@@ -28,7 +29,7 @@
     <script src="js/primitives/point.js"></script>
     <script src="js/primitives/segment.js"></script>
     <script src="js/primitives/polygon.js"></script>
-    <script src="js/primitives//envelope.js"></script>
+    <script src="js/primitives/envelope.js"></script>
 
     <script>
       myCanvas.width = 600;
@@ -45,7 +46,7 @@
 
       const viewport = new Viewport(myCanvas);
       const graphEditor = new GraphEditor(viewport, graph);
-      // const stopEditor = new StopEditor(viewport, world);
+      const stopEditor = new StopEditor(viewport, world);
 
       let oldGraphHash = graph.hash();
 
@@ -66,12 +67,13 @@
         world.draw(ctx, viewPoint);
         ctx.globalAlpha = 0.3;
         graphEditor.display();
-        // stopEditor.display();
+        stopEditor.display();
         requestAnimationFrame(animate);
       }
 
       function dispose() {
         graphEditor.dispose();
+        world.markings.length = 0;
       }
 
       function save() {
@@ -98,7 +100,7 @@
           case "stop":
             btnStop.style.backgroundColor = "white";
             btnStop.style.filter = "";
-            // stopEditor.enable();
+            stopEditor.enable();
             break;
         }
       }
@@ -109,7 +111,7 @@
         graphEditor.disable();
         btnStop.style.backgroundColor = "gray";
         btnStop.style.filter = "grayscale(100%)";
-        // stopEditor.disable();
+        stopEditor.disable();
       }
 
       btnDispose.addEventListener("click", dispose);
