@@ -16,17 +16,20 @@
       <button id="btnGraph">Graph</button>
       <button id="btnStop">Stop</button>
       <button id="btnCrossing">Crossing</button>
+      <button id="btnStart">Start</button>
     </div>
 
     <script src="js/world.js"></script>
     <script src="js/viewport.js"></script>
     <script src="js/markings/marking.js"></script>
     <script src="js/markings/stop.js"></script>
+    <script src="js/markings/start.js"></script>
     <script src="js/markings/crossing.js"></script>
     <script src="js/editors/markingEditor.js"></script>
     <script src="js/editors/graphEditor.js"></script>
     <script src="js/editors/stopEditor.js"></script>
     <script src="js/editors/crossingEditor.js"></script>
+    <script src="js/editors/startEditor.js"></script>
     <script src="js/items/tree.js"></script>
     <script src="js/items/building.js"></script>
     <script src="js/math/graph.js"></script>
@@ -54,7 +57,11 @@
       const tools = {
         graph: { button: btnGraph, editor: new GraphEditor(viewport, graph) },
         stop: { button: btnStop, editor: new StopEditor(viewport, world) },
-        crossing: { button: btnCrossing, editor: new CrossingEditor(viewport, world) },
+        crossing: {
+          button: btnCrossing,
+          editor: new CrossingEditor(viewport, world),
+        },
+        start: { button: btnStart, editor: new StartEditor(viewport, world) },
       };
 
       let oldGraphHash = graph.hash();
@@ -104,6 +111,10 @@
         setMode("crossing");
       }
 
+      function startMode() {
+        setMode("start");
+      }
+
       function setMode(mode) {
         disableEditors();
 
@@ -125,6 +136,7 @@
       btnGraph.addEventListener("click", graphMode);
       btnStop.addEventListener("click", stopMode);
       btnCrossing.addEventListener("click", crossingMode);
+      btnStart.addEventListener("click", startMode);
     </script>
   </body>
 </html>
