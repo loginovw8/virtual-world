@@ -15,13 +15,16 @@
       &nbsp;
       <button id="btnGraph">Graph</button>
       <button id="btnStop">Stop</button>
+      <button id="btnCrossing">Crossing</button>
     </div>
 
     <script src="js/world.js"></script>
     <script src="js/viewport.js"></script>
     <script src="js/markings/stop.js"></script>
+    <script src="js/markings/crossing.js"></script>
     <script src="js/editors/graphEditor.js"></script>
     <script src="js/editors/stopEditor.js"></script>
+    <script src="js/editors/crossingEditor.js"></script>
     <script src="js/items/tree.js"></script>
     <script src="js/items/building.js"></script>
     <script src="js/math/graph.js"></script>
@@ -47,6 +50,7 @@
       const viewport = new Viewport(myCanvas);
       const graphEditor = new GraphEditor(viewport, graph);
       const stopEditor = new StopEditor(viewport, world);
+      const crossingEditor = new CrossingEditor(viewport, world);
 
       let oldGraphHash = graph.hash();
 
@@ -68,6 +72,7 @@
         ctx.globalAlpha = 0.3;
         graphEditor.display();
         stopEditor.display();
+        crossingEditor.display();
         requestAnimationFrame(animate);
       }
 
@@ -88,6 +93,10 @@
         setMode("stop");
       }
 
+      function crossingMode() {
+        setMode("crossing");
+      }
+
       function setMode(mode) {
         disableEditors();
 
@@ -102,6 +111,11 @@
             btnStop.style.filter = "";
             stopEditor.enable();
             break;
+          case "crossing":
+            btnCrossing.style.backgroundColor = "white";
+            btnCrossing.style.filter = "";
+            crossingEditor.enable();
+            break;
         }
       }
 
@@ -109,15 +123,21 @@
         btnGraph.style.backgroundColor = "gray";
         btnGraph.style.filter = "grayscale(100%)";
         graphEditor.disable();
+
         btnStop.style.backgroundColor = "gray";
         btnStop.style.filter = "grayscale(100%)";
         stopEditor.disable();
+
+        btnCrossing.style.backgroundColor = "gray";
+        btnCrossing.style.filter = "grayscale(100%)";
+        crossingEditor.disable();
       }
 
       btnDispose.addEventListener("click", dispose);
       btnSave.addEventListener("click", save);
       btnGraph.addEventListener("click", graphMode);
       btnStop.addEventListener("click", stopMode);
+      btnCrossing.addEventListener("click", crossingMode);
     </script>
   </body>
 </html>
