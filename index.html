@@ -12,10 +12,14 @@
     <div id="controls">
       <button id="btnDispose">Dispose</button>
       <button id="btnSave">Save</button>
+      &nbsp;
+      <button id="btnGraph">Graph</button>
+      <button id="btnStop">Stop</button>
     </div>
 
     <script src="js/world.js"></script>
-    <script src="js/graphEditor.js"></script>
+    <script src="js/editors/graphEditor.js"></script>
+    <script src="js/editors/stopEditor.js"></script>
     <script src="js/viewport.js"></script>
     <script src="js/items/tree.js"></script>
     <script src="js/items/building.js"></script>
@@ -41,8 +45,11 @@
 
       const viewport = new Viewport(myCanvas);
       const graphEditor = new GraphEditor(viewport, graph);
+      // const stopEditor = new StopEditor(viewport, world);
 
       let oldGraphHash = graph.hash();
+
+      setMode("graph");
 
       animate();
 
@@ -59,6 +66,7 @@
         world.draw(ctx, viewPoint);
         ctx.globalAlpha = 0.3;
         graphEditor.display();
+        // stopEditor.display();
         requestAnimationFrame(animate);
       }
 
@@ -70,8 +78,44 @@
         localStorage.setItem("graph", JSON.stringify(graph));
       }
 
+      function graphMode() {
+        setMode("graph");
+      }
+
+      function stopMode() {
+        setMode("stop");
+      }
+
+      function setMode(mode) {
+        disableEditors();
+
+        switch (mode) {
+          case "graph":
+            btnGraph.style.backgroundColor = "white";
+            btnGraph.style.filter = "";
+            graphEditor.enable();
+            break;
+          case "stop":
+            btnStop.style.backgroundColor = "white";
+            btnStop.style.filter = "";
+            // stopEditor.enable();
+            break;
+        }
+      }
+
+      function disableEditors() {
+        btnGraph.style.backgroundColor = "gray";
+        btnGraph.style.filter = "grayscale(100%)";
+        graphEditor.disable();
+        btnStop.style.backgroundColor = "gray";
+        btnStop.style.filter = "grayscale(100%)";
+        // stopEditor.disable();
+      }
+
       btnDispose.addEventListener("click", dispose);
       btnSave.addEventListener("click", save);
+      btnGraph.addEventListener("click", graphMode);
+      btnStop.addEventListener("click", stopMode);
     </script>
   </body>
 </html>

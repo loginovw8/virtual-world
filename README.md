@@ -58,3 +58,13 @@ https://www.youtube.com/watch?v=aKzlooeJNM8&list=PLB0Tybl0UNfZtY5IQl1aNwcoOPJNtn
 027-random-number-generation
 028-building-object
 029-building-height
+
+## Part 07 - Road Marking Editor
+
+https://www.youtube.com/watch?v=kS4zDKC7LLs&list=PLB0Tybl0UNfZtY5IQl1aNwcoOPJNtnPEO&index=8
+
+030-preparing
+031-implementing-the-stop
+032-implementing-the-crossing
+033-refactoring
+034-implementing-the-start
