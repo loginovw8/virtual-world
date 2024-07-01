@@ -277,6 +277,7 @@ class World {
                 cTick % (greenDuration + yellowDuration) < greenDuration
                     ? "green"
                     : "yellow";
+
             for (let i = 0; i < center.lights.length; i++) {
                 if (i == greenYellowIndex) {
                     center.lights[i].state = greenYellowState;
