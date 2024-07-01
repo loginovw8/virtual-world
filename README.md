@@ -69,3 +69,15 @@ https://www.youtube.com/watch?v=kS4zDKC7LLs&list=PLB0Tybl0UNfZtY5IQl1aNwcoOPJNtn
 033-refactoring
 034-implementing-the-start-editor
 035-more-markings
+
+## Part 08 - Saving the World
+
+https://www.youtube.com/watch?v=zt8QDgwdqr8&list=PLB0Tybl0UNfZtY5IQl1aNwcoOPJNtnPEO&index=10
+
+036-saving-in-local-storage
+037-fixes
+038-loading-the-envelopes
+039-loading-the-buildings-and-trees
+040-loading-the-markings
+041-saving-and-loading-from-file
+042-storing-the-zoom-and-drag
