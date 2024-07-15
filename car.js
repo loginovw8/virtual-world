@@ -12,6 +12,8 @@ class Car {
         this.angle = angle;
         this.damaged = false;
 
+        this.fittness = 0;
+
         this.useBrain = controlType == "AI";
 
         if (controlType != "DUMMY") {
@@ -46,6 +48,9 @@ class Car {
     update(roadBorders, traffic) {
         if (!this.damaged) {
             this.#move();
+
+            this.fittness += this.speed;
+
             this.polygon = this.#createPolygon();
             this.damaged = this.#assessDamage(roadBorders, traffic);
         }

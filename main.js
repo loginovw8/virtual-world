@@ -16,7 +16,7 @@ const world = worldInfo ? World.load(worldInfo) : new World(new Graph());
 
 const viewport = new Viewport(carCanvas, world.zoom, world.offset);
 
-const N = 1;
+const N = 100;
 const cars = generateCars(N);
 let bestCar = cars[0];
 
@@ -58,7 +58,7 @@ function generateCars(N) {
     const cars = [];
 
     for (let i = 1; i <= N; i++) {
-        cars.push(new Car(startPoint.x, startPoint.y, 30, 50, "KEYS", startAngle));
+        cars.push(new Car(startPoint.x, startPoint.y, 30, 50, "AI", startAngle));
     }
 
     return cars;
@@ -74,7 +74,7 @@ function animate(time) {
     }
 
     const bestCar = cars.find(car =>
-        car.y == Math.min(...cars.map(car => car.y)));
+        car.fittness == Math.max(...cars.map(car => car.fittness)));
 
     world.cars = cars;
     world.bestCar = bestCar;
