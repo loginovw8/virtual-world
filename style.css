@@ -1,13 +1,21 @@
 body {
-    background-color: black;
-    text-align: center;
+    margin: 0;
+    background: darkgray;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-h1 {
-    color: white;
-    font-family: Arial;
+#verticalButtons {
+    display: flex;
+    flex-direction: column;
 }
 
-#myCanvas {
-    background-color: #2a5;
+#carCanvas {
+    background: lightgray;
+}
+
+#networkCanvas {
+    background: black;
 }

@@ -1,83 +1,75 @@
 # README
 
-## Part 01 - Spatial Graphs
+## Part 01 - Driving Mechanics
 
-https://www.youtube.com/watch?v=V_C7L7zelz8&list=PLB0Tybl0UNfYoJE7ZwsBQoDIG4YN9ptyY&index=12
+https://www.youtube.com/watch?v=NkI9ia2cLhc&list=PLB0Tybl0UNfYoJE7ZwsBQoDIG4YN9ptyY&index=2
 
-001-implementing-spatial-graph
-002-implementing-graph-functionality
+001-setup
+002-controls
+003-car-physics
 
-## Part 02 - Graph Editor
+## Part 02 - Road Definition
 
-https://www.youtube.com/watch?v=_HkGH2WN_Tg&list=PLB0Tybl0UNfYoJE7ZwsBQoDIG4YN9ptyY&index=13
+https://www.youtube.com/watch?v=IxhrXKEVCsc&list=PLB0Tybl0UNfYoJE7ZwsBQoDIG4YN9ptyY&index=2
 
-003-adding-points
-004-selecting-points
-005-removing-points
-006-dragging-points
-007-creating-segments
-008-fine-tuning
+004-creating-the-road
+005-creating-the-lanes
+006-getting-lane-x-coordinate
+007-defining-the-road-borders
+008-following-the-car-on-the-road
 
-## Part 03 - Pan & Zoom
+## Part 03 - Artificial Sensors
 
-https://www.youtube.com/watch?v=S4HMcN2YlgU&list=PLB0Tybl0UNfZtY5IQl1aNwcoOPJNtnPEO&index=3
+https://www.youtube.com/watch?v=2AKMSO2Gocs&list=PLB0Tybl0UNfYoJE7ZwsBQoDIG4YN9ptyY&index=3
 
-009-zoom
-010-drag-and-pan
-011-saving-and-loading
+009-the-sensor-class
+010-casting-the-rays
+011-detecting-the-road-borders
+012-drawing-the-sensor-readings
 
-## Part 04 - Polygon Operations
+## Part 04 - Segment Intersection
 
-https://www.youtube.com/watch?v=3Aqe7Tv1jug&list=PLB0Tybl0UNfZtY5IQl1aNwcoOPJNtnPEO&index=4
+https://www.youtube.com/watch?v=fHOLQJo0FjQ&list=PLB0Tybl0UNfYoJE7ZwsBQoDIG4YN9ptyY&index=4
 
-012-polygon-class
-013-polygon-envelopes
-014-roundness
-015-world-class
-016-finding-intersections
-017-fine-tuning
-018-polygon-union
-019-styling
+013-visualizing-segments
+014-linear-interpolation
+015-intersection-function
+016-visual-debugging
 
-## Part 05 - Procedural Generation
+## Part 05 - Collision Detection
 
-https://www.youtube.com/watch?v=BBFNvmUKxJ0&list=PLB0Tybl0UNfZtY5IQl1aNwcoOPJNtnPEO&index=5
+https://www.youtube.com/watch?v=M8kq2eJRIp0&list=PLB0Tybl0UNfYoJE7ZwsBQoDIG4YN9ptyY&index=5
 
-020-buildings
-021-trees
-022-avoid-illegal-allocations
-023-fine-tuning
+017-defining-polygon
+018-drawing-polygon
+019-polygon-intersect
 
-## Part 06 - Pseudo 3D
+## Part 06 - Traffic Simulation
 
-https://www.youtube.com/watch?v=aKzlooeJNM8&list=PLB0Tybl0UNfZtY5IQl1aNwcoOPJNtnPEO&index=6
+https://www.youtube.com/watch?v=s3MpIa63BXY&list=PLB0Tybl0UNfYoJE7ZwsBQoDIG4YN9ptyY&index=6
 
-024-tree-object
-025-3d-approach
-026-styling-3d-trees
-027-random-number-generation
-028-building-object
-029-building-height
+020-generating-traffic
+021-updating-collisions
 
-## Part 07 - Road Marking Editor
+## Part 07 - Neural Networks
 
-https://www.youtube.com/watch?v=kS4zDKC7LLs&list=PLB0Tybl0UNfZtY5IQl1aNwcoOPJNtnPEO&index=8
+https://www.youtube.com/watch?v=Ve9TcAkpFgY&list=PLB0Tybl0UNfYoJE7ZwsBQoDIG4YN9ptyY&index=7
 
-030-preparing
-031-implementing-the-stop-editor
-032-implementing-the-crossing-editor
-033-refactoring
-034-implementing-the-start-editor
-035-more-markings
+022-implementation
+023-connecting-to-car
 
-## Part 08 - Saving the World
+## Part 08 - Visualizing Neural Networks
 
-https://www.youtube.com/watch?v=zt8QDgwdqr8&list=PLB0Tybl0UNfZtY5IQl1aNwcoOPJNtnPEO&index=10
+https://www.youtube.com/watch?v=lok3RVBwSqE&list=PLB0Tybl0UNfYoJE7ZwsBQoDIG4YN9ptyY&index=8
 
-036-saving-in-local-storage
-037-fixes
-038-loading-the-envelopes
-039-loading-the-buildings-and-trees
-040-loading-the-markings
-041-saving-and-loading-from-file
-042-storing-the-zoom-and-drag
+024-drawing-sctructure
+025-styling-network
+
+## Part 09 - Optimizing Neural Networks
+
+026-fitness-function
+027-mutation
+
+## Part 10 - Fine-tuning
+
+028-draw-image
