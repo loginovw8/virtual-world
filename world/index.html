@@ -245,7 +245,10 @@
           return;
         }
 
-        Osm.parseRoads(JSON.parse(osmDataContainer.value));
+        const res = Osm.parseRoads(JSON.parse(osmDataContainer.value));
+
+        graph.points = res.points;
+        graph.segments = res.segments;
 
         osmPanel.style.display = "none";
       });

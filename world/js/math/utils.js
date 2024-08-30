@@ -89,6 +89,10 @@ function invLerp(a, b, v) {
     return (v - a) / (b - a);
 }
 
+function degToRad(degree) {
+    return degree * Math.PI / 180;
+}
+
 function getIntersection(A, B, C, D) {
     const tTop = (D.x - C.x) * (A.y - C.y) - (D.y - C.y) * (A.x - C.x);
     const uTop = (C.y - A.y) * (A.x - B.x) - (C.x - A.x) * (A.y - B.y);
