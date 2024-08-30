@@ -36,7 +36,9 @@ const Osm = {
                 const prev = points.find((p) => p.id == ids[i - 1]);
                 const cur = points.find((p) => p.id == ids[i]);
 
-                segments.push(new Segment(prev, cur));
+                const oneWay = way.tags.oneway || way.tags.lanes == 1;
+
+                segments.push(new Segment(prev, cur, oneWay));
             }
         }
 
