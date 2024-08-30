@@ -92,3 +92,13 @@ https://www.youtube.com/watch?v=wH2aNJxltus&list=PLB0Tybl0UNfZtY5IQl1aNwcoOPJNtn
 046-buildings-collision
 047-road-borders-collision
 048-ai
+
+## Part 10 - OpenStreetMap
+
+049-osm-data
+050-overpass-turbo
+051-parsing-osm
+052-latitude-longitude
+053-scaling
+054-one-way-road-segments
+055-optimization

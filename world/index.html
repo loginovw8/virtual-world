@@ -19,6 +19,7 @@
         accept=".world"
         onchange="load(event)"
       />
+      <button id="btnOpenOsmPanel">Open OSM</button>
       &nbsp;
       <button id="btnGraph">Graph</button>
       <button id="btnStop">Stop</button>
@@ -28,6 +29,14 @@
       <button id="btnLight">Light</button>
       <button id="btnStart">Start</button>
       <button id="btnTarget">Target</button>
+
+      <div id="osmPanel" style="display: none;">
+        <textarea id="osmDataContainer" rows="10" cols="50" placeholder="Paste OSM data"></textarea>
+        <div>
+          <button id="btnParseOsm">Parse OSM</button>
+          <button id="btnCloseOsmPanel">Close OSM</button>
+        </div>
+      </div>
     </div>
 
     <script src="js/world.js"></script>
@@ -220,6 +229,16 @@
       btnLight.addEventListener("click", lightMode);
       btnStart.addEventListener("click", startMode);
       btnTarget.addEventListener("click", targetMode);
+
+      btnOpenOsmPanel.addEventListener("click", () => {
+        osmPanel.style.display = 'block';
+      });      
+      btnParseOsm.addEventListener("click", () => {
+
+      });
+      btnCloseOsmPanel.addEventListener("click", () => {
+        osmPanel.style.display = 'none';
+      });
     </script>
   </body>
 </html>
