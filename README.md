@@ -1,4 +1,13 @@
-# README
+# Беспилотный автомобиль. Этап 2
+
+Данный репозиторий является конспектом курса Radu Mariescu-Istodor Self-driving Car Phase 2:
+
+    https://www.youtube.com/playlist?list=PLB0Tybl0UNfZtY5IQl1aNwcoOPJNtnPEO
+
+Репозиторий содержит 11 главных веток, каждая из которых соответствует одной части курса
+и имеет последовательность ветвлений в соответствии с таймлайном видеозаписи.
+
+Этап 1. https://github.com/loginovw8/self-driving-car
 
 ## Part 01 - Spatial Graphs
 
@@ -95,6 +104,8 @@ https://www.youtube.com/watch?v=wH2aNJxltus&list=PLB0Tybl0UNfZtY5IQl1aNwcoOPJNtn
 
 ## Part 10 - OpenStreetMap
 
+https://www.youtube.com/watch?v=IKwkOajkSHs&list=PLB0Tybl0UNfZtY5IQl1aNwcoOPJNtnPEO&index=12&pp=iAQB
+
 049-osm-data
 050-overpass-turbo
 051-parsing-osm
@@ -129,3 +140,9 @@ https://overpass-turbo.eu/
     out body;
     >;
     out skel;
+
+## Part 11 - MiniMap
+
+https://www.youtube.com/watch?v=ecZRuuLjGQA&list=PLB0Tybl0UNfZtY5IQl1aNwcoOPJNtnPEO&index=13
+
+056-minimap

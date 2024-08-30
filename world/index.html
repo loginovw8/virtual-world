@@ -1,260 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>World Editor</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <h1>World Editor</h1>
-    <canvas id="myCanvas"></canvas>
-    <div id="controls">
-      <button id="btnDispose">Dispose</button>
-      <button id="btnSave">Save</button>
-      <label for="fileInput">File Input</label>
-      <input
-        type="file"
-        id="fileInput"
-        accept=".world"
-        onchange="load(event)"
-      />
-      <button id="btnOpenOsmPanel">Open OSM</button>
-      &nbsp;
-      <button id="btnGraph">Graph</button>
-      <button id="btnStop">Stop</button>
-      <button id="btnYield">Yield</button>
-      <button id="btnCrossing">Crossing</button>
-      <button id="btnParking">Parking</button>
-      <button id="btnLight">Light</button>
-      <button id="btnStart">Start</button>
-      <button id="btnTarget">Target</button>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>World Editor</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <h1>World Editor</h1>
+        <canvas id="myCanvas"></canvas>
+        <div id="controls">
+            <button id="btnDispose">Dispose</button>
+            <button id="btnSave">Save</button>
+            <label for="fileInput">File Input</label>
+            <input
+                type="file"
+                id="fileInput"
+                accept=".world"
+                onchange="load(event)"
+            />
+            <button id="btnOpenOsmPanel">Open OSM</button>
+            &nbsp;
+            <button id="btnGraph">Graph</button>
+            <button id="btnStop">Stop</button>
+            <button id="btnYield">Yield</button>
+            <button id="btnCrossing">Crossing</button>
+            <button id="btnParking">Parking</button>
+            <button id="btnLight">Light</button>
+            <button id="btnStart">Start</button>
+            <button id="btnTarget">Target</button>
 
-      <div id="osmPanel" style="display: none">
-        <textarea
-          id="osmDataContainer"
-          rows="10"
-          cols="50"
-          placeholder="Paste OSM data"
-        ></textarea>
-        <div>
-          <button id="btnParseOsm">Parse OSM</button>
-          <button id="btnCloseOsmPanel">Close OSM</button>
+            <div id="osmPanel" style="display: none">
+                <textarea
+                    id="osmDataContainer"
+                    rows="10"
+                    cols="50"
+                    placeholder="Paste OSM data"
+                ></textarea>
+                <div>
+                    <button id="btnParseOsm">Parse OSM</button>
+                    <button id="btnCloseOsmPanel">Close OSM</button>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-    <script src="js/world.js"></script>
-    <script src="js/viewport.js"></script>
-    <script src="js/markings/marking.js"></script>
-    <script src="js/markings/stop.js"></script>
-    <script src="js/markings/start.js"></script>
-    <script src="js/markings/crossing.js"></script>
-    <script src="js/markings/parking.js"></script>
-    <script src="js/markings/light.js"></script>
-    <script src="js/markings/target.js"></script>
-    <script src="js/markings/yield.js"></script>
-    <script src="js/editors/markingEditor.js"></script>
-    <script src="js/editors/graphEditor.js"></script>
-    <script src="js/editors/crossingEditor.js"></script>
-    <script src="js/editors/stopEditor.js"></script>
-    <script src="js/editors/startEditor.js"></script>
-    <script src="js/editors/parkingEditor.js"></script>
-    <script src="js/editors/lightEditor.js"></script>
-    <script src="js/editors/targetEditor.js"></script>
-    <script src="js/editors/yieldEditor.js"></script>
-    <script src="js/items/tree.js"></script>
-    <script src="js/items/building.js"></script>
-    <script src="js/math/graph.js"></script>
-    <script src="js/math/osm.js"></script>
-    <script src="js/math/utils.js"></script>
-    <script src="js/primitives/point.js"></script>
-    <script src="js/primitives/segment.js"></script>
-    <script src="js/primitives/polygon.js"></script>
-    <script src="js/primitives/envelope.js"></script>
+        <script src="js/world.js"></script>
+        <script src="js/viewport.js"></script>
+        <script src="js/markings/marking.js"></script>
+        <script src="js/markings/stop.js"></script>
+        <script src="js/markings/start.js"></script>
+        <script src="js/markings/crossing.js"></script>
+        <script src="js/markings/parking.js"></script>
+        <script src="js/markings/light.js"></script>
+        <script src="js/markings/target.js"></script>
+        <script src="js/markings/yield.js"></script>
+        <script src="js/editors/markingEditor.js"></script>
+        <script src="js/editors/graphEditor.js"></script>
+        <script src="js/editors/crossingEditor.js"></script>
+        <script src="js/editors/stopEditor.js"></script>
+        <script src="js/editors/startEditor.js"></script>
+        <script src="js/editors/parkingEditor.js"></script>
+        <script src="js/editors/lightEditor.js"></script>
+        <script src="js/editors/targetEditor.js"></script>
+        <script src="js/editors/yieldEditor.js"></script>
+        <script src="js/items/tree.js"></script>
+        <script src="js/items/building.js"></script>
+        <script src="js/math/graph.js"></script>
+        <script src="js/math/osm.js"></script>
+        <script src="js/math/utils.js"></script>
+        <script src="js/primitives/point.js"></script>
+        <script src="js/primitives/segment.js"></script>
+        <script src="js/primitives/polygon.js"></script>
+        <script src="js/primitives/envelope.js"></script>
 
-    <script>
-      myCanvas.width = 600;
-      myCanvas.height = 600;
+        <script>
+            myCanvas.width = 600;
+            myCanvas.height = 600;
 
-      const ctx = myCanvas.getContext("2d");
+            const ctx = myCanvas.getContext("2d");
 
-      const worldString = localStorage.getItem("world");
-      const worldInfo = worldString ? JSON.parse(worldString) : null;
+            const worldString = localStorage.getItem("world");
+            const worldInfo = worldString ? JSON.parse(worldString) : null;
 
-      let world = worldInfo ? World.load(worldInfo) : new World(new Graph());
-      const graph = world.graph;
+            let world = worldInfo
+                ? World.load(worldInfo)
+                : new World(new Graph());
+            const graph = world.graph;
 
-      const viewport = new Viewport(myCanvas, world.zoom, world.offset);
+            const viewport = new Viewport(myCanvas, world.zoom, world.offset);
 
-      const tools = {
-        graph: { button: btnGraph, editor: new GraphEditor(viewport, graph) },
-        stop: { button: btnStop, editor: new StopEditor(viewport, world) },
-        crossing: {
-          button: btnCrossing,
-          editor: new CrossingEditor(viewport, world),
-        },
-        start: { button: btnStart, editor: new StartEditor(viewport, world) },
-        parking: {
-          button: btnParking,
-          editor: new ParkingEditor(viewport, world),
-        },
-        light: { button: btnLight, editor: new LightEditor(viewport, world) },
-        target: {
-          button: btnTarget,
-          editor: new TargetEditor(viewport, world),
-        },
-        yield: { button: btnYield, editor: new YieldEditor(viewport, world) },
-      };
+            const tools = {
+                graph: {
+                    button: btnGraph,
+                    editor: new GraphEditor(viewport, graph),
+                },
+                stop: {
+                    button: btnStop,
+                    editor: new StopEditor(viewport, world),
+                },
+                crossing: {
+                    button: btnCrossing,
+                    editor: new CrossingEditor(viewport, world),
+                },
+                start: {
+                    button: btnStart,
+                    editor: new StartEditor(viewport, world),
+                },
+                parking: {
+                    button: btnParking,
+                    editor: new ParkingEditor(viewport, world),
+                },
+                light: {
+                    button: btnLight,
+                    editor: new LightEditor(viewport, world),
+                },
+                target: {
+                    button: btnTarget,
+                    editor: new TargetEditor(viewport, world),
+                },
+                yield: {
+                    button: btnYield,
+                    editor: new YieldEditor(viewport, world),
+                },
+            };
 
-      let oldGraphHash = graph.hash();
+            let oldGraphHash = graph.hash();
 
-      setMode("graph");
+            setMode("graph");
 
-      animate();
+            animate();
 
-      function animate() {
-        viewport.reset();
+            function animate() {
+                viewport.reset();
 
-        if (graph.hash() != oldGraphHash) {
-          world.generate();
-          oldGraphHash = graph.hash();
-        }
+                if (graph.hash() != oldGraphHash) {
+                    world.generate();
+                    oldGraphHash = graph.hash();
+                }
 
-        const viewPoint = scale(viewport.getOffset(), -1);
+                const viewPoint = scale(viewport.getOffset(), -1);
 
-        world.draw(ctx, viewPoint);
-        ctx.globalAlpha = 0.3;
+                world.draw(ctx, viewPoint);
+                ctx.globalAlpha = 0.3;
 
-        for (const tool of Object.values(tools)) {
-          tool.editor.display();
-        }
+                for (const tool of Object.values(tools)) {
+                    tool.editor.display();
+                }
 
-        requestAnimationFrame(animate);
-      }
+                requestAnimationFrame(animate);
+            }
 
-      function dispose() {
-        tools["graph"].editor.dispose();
-        world.markings.length = 0;
-      }
+            function dispose() {
+                tools["graph"].editor.dispose();
+                world.markings.length = 0;
+            }
 
-      function save() {
-        world.zoom = viewport.zoom;
-        world.offset = viewport.offset;
+            function save() {
+                world.zoom = viewport.zoom;
+                world.offset = viewport.offset;
 
-        const element = document.createElement("a");
-        element.setAttribute(
-          "href",
-          "data:application/json;charset=utf-8" +
-            encodeURIComponent(JSON.stringify(world))
-        );
+                const element = document.createElement("a");
+                element.setAttribute(
+                    "href",
+                    "data:application/json;charset=utf-8" +
+                        encodeURIComponent(JSON.stringify(world))
+                );
 
-        const fileName = "name.world";
+                const fileName = "name.world";
 
-        element.setAttribute("download", fileName);
-        element.click();
+                element.setAttribute("download", fileName);
+                element.click();
 
-        localStorage.setItem("world", JSON.stringify(world));
-      }
+                try {
+                    localStorage.setItem("world", JSON.stringify(world));
+                } catch (err) {
+                    alert(err);
+                }
+            }
 
-      function load(event) {
-        const file = event.target.files[0];
+            function load(event) {
+                const file = event.target.files[0];
 
-        if (!file) {
-          alert("No file selected!");
-          return;
-        }
+                if (!file) {
+                    alert("No file selected!");
+                    return;
+                }
 
-        const reader = new FileReader();
-        reader.readAsText(file);
+                const reader = new FileReader();
+                reader.readAsText(file);
 
-        reader.onload = (evt) => {
-          const fileContent = evt.target.result;
-          const jsonData = JSON.parse(fileContent);
-          world = World.load(jsonData);
-          localStorage.setItem("world", JSON.stringify(world));
-          location.reload();
-        };
-      }
+                reader.onload = (evt) => {
+                    const fileContent = evt.target.result;
+                    const jsonData = JSON.parse(fileContent);
+                    world = World.load(jsonData);
+                    localStorage.setItem("world", JSON.stringify(world));
+                    location.reload();
+                };
+            }
 
-      function graphMode() {
-        setMode("graph");
-      }
+            function graphMode() {
+                setMode("graph");
+            }
 
-      function stopMode() {
-        setMode("stop");
-      }
+            function stopMode() {
+                setMode("stop");
+            }
 
-      function yieldMode() {
-        setMode("yield");
-      }
+            function yieldMode() {
+                setMode("yield");
+            }
 
-      function crossingMode() {
-        setMode("crossing");
-      }
+            function crossingMode() {
+                setMode("crossing");
+            }
 
-      function parkingMode() {
-        setMode("parking");
-      }
+            function parkingMode() {
+                setMode("parking");
+            }
 
-      function lightMode() {
-        setMode("light");
-      }
+            function lightMode() {
+                setMode("light");
+            }
 
-      function startMode() {
-        setMode("start");
-      }
+            function startMode() {
+                setMode("start");
+            }
 
-      function targetMode() {
-        setMode("target");
-      }
+            function targetMode() {
+                setMode("target");
+            }
 
-      function setMode(mode) {
-        disableEditors();
+            function setMode(mode) {
+                disableEditors();
 
-        tools[mode].button.style.backgroundColor = "white";
-        tools[mode].button.style.filter = "";
-        tools[mode].editor.enable();
-      }
+                tools[mode].button.style.backgroundColor = "white";
+                tools[mode].button.style.filter = "";
+                tools[mode].editor.enable();
+            }
 
-      function disableEditors() {
-        for (const tool of Object.values(tools)) {
-          tool.button.style.backgroundColor = "gray";
-          tool.button.style.filter = "grayscale(100%)";
-          tool.editor.disable();
-        }
-      }
+            function disableEditors() {
+                for (const tool of Object.values(tools)) {
+                    tool.button.style.backgroundColor = "gray";
+                    tool.button.style.filter = "grayscale(100%)";
+                    tool.editor.disable();
+                }
+            }
 
-      btnDispose.addEventListener("click", dispose);
-      btnSave.addEventListener("click", save);
-      btnGraph.addEventListener("click", graphMode);
-      btnStop.addEventListener("click", stopMode);
-      btnYield.addEventListener("click", yieldMode);
-      btnCrossing.addEventListener("click", crossingMode);
-      btnParking.addEventListener("click", parkingMode);
-      btnLight.addEventListener("click", lightMode);
-      btnStart.addEventListener("click", startMode);
-      btnTarget.addEventListener("click", targetMode);
+            btnDispose.addEventListener("click", dispose);
+            btnSave.addEventListener("click", save);
+            btnGraph.addEventListener("click", graphMode);
+            btnStop.addEventListener("click", stopMode);
+            btnYield.addEventListener("click", yieldMode);
+            btnCrossing.addEventListener("click", crossingMode);
+            btnParking.addEventListener("click", parkingMode);
+            btnLight.addEventListener("click", lightMode);
+            btnStart.addEventListener("click", startMode);
+            btnTarget.addEventListener("click", targetMode);
 
-      btnOpenOsmPanel.addEventListener("click", () => {
-        osmPanel.style.display = "block";
-      });
-      btnParseOsm.addEventListener("click", () => {
-        if (osmDataContainer.value == "") {
-          alert("Paste data first!");
-          return;
-        }
+            btnOpenOsmPanel.addEventListener("click", () => {
+                osmPanel.style.display = "block";
+            });
+            btnParseOsm.addEventListener("click", () => {
+                if (osmDataContainer.value == "") {
+                    alert("Paste data first!");
+                    return;
+                }
 
-        const res = Osm.parseRoads(JSON.parse(osmDataContainer.value));
+                const res = Osm.parseRoads(JSON.parse(osmDataContainer.value));
 
-        graph.points = res.points;
-        graph.segments = res.segments;
+                graph.points = res.points;
+                graph.segments = res.segments;
 
-        osmPanel.style.display = "none";
-      });
-      btnCloseOsmPanel.addEventListener("click", () => {
-        osmPanel.style.display = "none";
-      });
-    </script>
-  </body>
+                osmPanel.style.display = "none";
+            });
+            btnCloseOsmPanel.addEventListener("click", () => {
+                osmPanel.style.display = "none";
+            });
+        </script>
+    </body>
 </html>
