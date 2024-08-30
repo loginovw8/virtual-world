@@ -30,8 +30,13 @@
       <button id="btnStart">Start</button>
       <button id="btnTarget">Target</button>
 
-      <div id="osmPanel" style="display: none;">
-        <textarea id="osmDataContainer" rows="10" cols="50" placeholder="Paste OSM data"></textarea>
+      <div id="osmPanel" style="display: none">
+        <textarea
+          id="osmDataContainer"
+          rows="10"
+          cols="50"
+          placeholder="Paste OSM data"
+        ></textarea>
         <div>
           <button id="btnParseOsm">Parse OSM</button>
           <button id="btnCloseOsmPanel">Close OSM</button>
@@ -232,20 +237,20 @@
       btnTarget.addEventListener("click", targetMode);
 
       btnOpenOsmPanel.addEventListener("click", () => {
-        osmPanel.style.display = 'block';
-      });      
+        osmPanel.style.display = "block";
+      });
       btnParseOsm.addEventListener("click", () => {
         if (osmDataContainer.value == "") {
-          alert('Paste data first!');
+          alert("Paste data first!");
           return;
         }
 
         Osm.parseRoads(JSON.parse(osmDataContainer.value));
 
-        osmPanel.style.display = 'none';
+        osmPanel.style.display = "none";
       });
       btnCloseOsmPanel.addEventListener("click", () => {
-        osmPanel.style.display = 'none';
+        osmPanel.style.display = "none";
       });
     </script>
   </body>
