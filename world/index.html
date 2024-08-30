@@ -61,6 +61,7 @@
     <script src="js/items/tree.js"></script>
     <script src="js/items/building.js"></script>
     <script src="js/math/graph.js"></script>
+    <script src="js/math/osm.js"></script>
     <script src="js/math/utils.js"></script>
     <script src="js/primitives/point.js"></script>
     <script src="js/primitives/segment.js"></script>
@@ -234,7 +235,14 @@
         osmPanel.style.display = 'block';
       });      
       btnParseOsm.addEventListener("click", () => {
+        if (osmDataContainer.value == "") {
+          alert('Paste data first!');
+          return;
+        }
 
+        Osm.parseRoads(JSON.parse(osmDataContainer.value));
+
+        osmPanel.style.display = 'none';
       });
       btnCloseOsmPanel.addEventListener("click", () => {
         osmPanel.style.display = 'none';
